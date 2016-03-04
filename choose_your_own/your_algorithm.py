@@ -30,13 +30,18 @@ plt.show()
 
 ### your code here!  name your classifier object clf if you want the 
 ### visualization code (prettyPicture) to show you the decision boundary
+"""
+According to wikipedia:
 
+    While every learning algorithm will tend to suit some problem types better than others, and will typically have many different parameters and configurations to be adjusted before achieving optimal performance on a dataset, AdaBoost (with decision trees as the weak learners) is often referred to as the best out-of-the-box classifier
 
+"""
+from sklearn.ensemble import AdaBoostClassifier
+from sklearn.metrics import accuracy_score
 
-
-
-
-
+clf = AdaBoostClassifier()
+clf.fit(features_train, labels_train)
+print 'accuracy = ', accuracy_score(clf.predict(features_test), labels_test)
 
 try:
     prettyPicture(clf, features_test, labels_test)
